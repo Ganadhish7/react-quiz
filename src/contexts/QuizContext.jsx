@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+
 import { createContext, useContext, useEffect, useReducer } from "react";
 
 const QuizContext = createContext();
@@ -99,7 +99,7 @@ function QuizProvider({ children }) {
   );
 
   useEffect(function () {
-    fetch("http://localhost:9000/questions")
+    fetch("https://raw.githubusercontent.com/Ganadhish7/react-quiz/main/data/questions.json")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));
